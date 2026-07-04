@@ -10,7 +10,7 @@
       "@pages/*": ["./src/pages/*"],
       "@styles/*": ["./src/styles/*"],
       "@assets/*": ["./src/assets/*"],
-      "@public/*": ["./public/*"],
+      "@i18n/*": ["./src/i18n/*"],
     }
   }
 }
