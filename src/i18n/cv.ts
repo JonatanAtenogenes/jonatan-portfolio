@@ -1,6 +1,6 @@
 export const cvFiles = {
-  en: '/Jonatan_Eslava_CV_EN.pdf',
-  es: '/Jonatan_Eslava_CV_ES.pdf',
+  en: '/cv/Jonatan_Eslava_CV_EN.pdf',
+  es: '/cv/Jonatan_Eslava_CV_ES.pdf',
 } as const;
 
 export const otherLang = {

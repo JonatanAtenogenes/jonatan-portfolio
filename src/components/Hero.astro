@@ -1,22 +1,51 @@
+---
+import { getLanguageFromUrl, useTranslation } from '@i18n/utils';
+import { cvFiles, otherLang } from '@i18n/cv';
+
+const lang = getLanguageFromUrl(Astro.url);
+const t = useTranslation(lang);
+const other = otherLang[lang];
+---
+
 <section
-  class="min-h-screen flex flex-col justify-center px-8 max-w-4xl mx-auto"
+  class="min-h-screen flex flex-col justify-center px-6 sm:px-8 max-w-4xl mx-auto"
 >
-  <p class="font-sans text-accent2 uppercase tracking-widest text-sm">
-    Disponible para trabajar — CDMX / remoto
+  <p
+    class="font-sans text-accent2 uppercase tracking-widest text-xs sm:text-sm"
+  >
+    {t('hero.availability')}
   </p>
 
-  <h1 class="font-serif text-6xl mt-4">Jonatan Eslava</h1>
+  <h1 class="font-serif text-4xl sm:text-6xl mt-4 leading-tight">
+    {t('hero.name')}
+  </h1>
 
-  <p class="font-sans text-xl mt-3 text-ink/80">
-    Full Stack Developer &amp; Data/BI Analyst en formación
+  <p
+    class="font-sans text-base sm:text-xl mt-3 text-ink/80 leading-relaxed max-w-xl"
+  >
+    {t('hero.tagline.pre')}
+    <span
+      class="font-serif italic text-accent border-b-2 border-accent2/60 pb-0.5"
+      >{' '}
+      {t('hero.tagline.highlight')}{' '}
+    </span>
+    {t('hero.tagline.post')}
   </p>
 
-  <div class="flex gap-4 mt-8">
+  <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mt-8">
     <a
-      href="/cv/Jonatan_Eslava_CV_ES.pdf"
-      class="font-sans px-6 py-3 bg-accent
-    text-bg font-medium"
-      >Descargar CV</a
+      href={cvFiles[lang]}
+      target="_blank"
+      class="font-sans px-6 py-3 bg-accent text-bg font-medium w-full sm:w-auto text-center"
+      >{t('hero.cta.cv')}</a
     >
   </div>
+  <a
+    href={cvFiles[other]}
+    target="_blank"
+    class="font-sans text-sm text-ink/60 underline underline-offset-4 hover:text-ink
+    transition-colors text-center sm:text-left"
+  >
+    {t('hero.cv.other')}
+  </a>
 </section>
