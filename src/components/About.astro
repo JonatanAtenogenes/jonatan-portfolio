@@ -1,0 +1,55 @@
+---
+import { getLanguageFromUrl, useTranslation } from '@i18n/utils';
+
+const lang = getLanguageFromUrl(Astro.url);
+const t = useTranslation(lang);
+
+const details = [
+  ['about.details.location', 'about.details.locationValue'],
+  ['about.details.availability', 'about.details.availabilityValue'],
+  ['about.details.focus', 'about.details.focusValue'],
+  ['about.details.graduation', 'about.details.graduationValue'],
+] as const;
+---
+
+<section
+  id="about"
+  class="px-6 sm:px-8 max-w-4xl mx-auto py-16 sm:py-24 border-t border-line"
+>
+  <h2 class="font-serif text-2xl sm:text-3xl mb-8 sm:mb-10">
+    {t('about.label')}
+  </h2>
+
+  <div class="flex flex-col sm:flex-row sm:gap-12 gap-10 relative">
+    <div class="sm:w-3/5 space-y-8">
+      <p class="font-sans text-ink/85 leading-relaxed">
+        {t('about.bio.pre')}
+        <em class="font-serif not-italic text-accent2 font-medium"
+          >{t('about.bio.italic1')}</em
+        >{t('about.bio.mid')}
+        <em class="font-serif not-italic text-accent2 font-medium"
+          >{t('about.bio.italic2')}</em
+        >{t('about.bio.post')}
+      </p>
+
+      <blockquote
+        class="font-serif italic text-2xl sm:text-3xl text-accent leading-snug pl-5 border-l-2 border-accent/50"
+      >
+        "{t('about.quote')}"
+      </blockquote>
+    </div>
+
+    <dl class="sm:w-2/5 space-y-4 font-sans text-sm sm:mt-16 sm:-mr-4">
+      {
+        details.map(([label, value]) => (
+          <div class="flex justify-between border-b border-line pb-2">
+            <dt class="text-ink/50 text-xs">
+              <span class="text-accent2">—</span> {t(label)}
+            </dt>
+            <dd class="text-ink font-medium">{t(value)}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>
