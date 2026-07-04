@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #f0f7ee;
+  --color-ink: #32213a;
+  --color-panel: #32213a;
+  --color-panel-ink: #f0f7ee;
+  --color-accent: #ad7a99;
+  --color-accent2: #315659;
+  --color-line: #473144;
+
+  --font-serif: "Fraunces", serif;
+  --font-sans: "Archivo", sans-serif;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+}
