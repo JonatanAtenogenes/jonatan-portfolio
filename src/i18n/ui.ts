@@ -59,6 +59,23 @@ export const ui = {
     'projects.subnetting.title': 'IPv4 Subnetting Calculator',
     'projects.subnetting.desc':
       'A vanilla HTML, CSS and JavaScript tool that calculates full subnetting tables from an IP address and host count — network ID, usable range, broadcast, mask, prefix, and wildcard.',
+
+    'experience.label': 'Experience',
+    'experience.period.current': 'Current',
+    'experience.period.2025': '2025',
+    'experience.period.2020-2026': '2020 — 2026',
+
+    'experience.daimler.title': 'DevOps Resident — Daimler Truck México',
+    'experience.daimler.detail':
+      'OPT / HR team. Reengineering HR modules from ASP Classic to React and .NET.',
+
+    'experience.hackathon.title': '1st Place — Genius Arena Hackathon',
+    'experience.hackathon.detail':
+      "Part of the team behind a microentrepreneurs app, Coppel's challenge.",
+
+    'experience.education.title': 'Computer Systems Engineering — ITT Toluca',
+    'experience.education.detail':
+      'Expected graduation 2026. Foundation in full stack development (React, .NET, C#), networking (CCNAv7), and Linux administration.',
   },
   es: {
     'hero.availability': 'Disponible para colaborar — CDMX / remoto',
@@ -113,5 +130,23 @@ export const ui = {
     'projects.subnetting.title': 'Calculadora de subneteo IPv4',
     'projects.subnetting.desc':
       'Herramienta en HTML, CSS y JavaScript puro que calcula tablas completas de subneteo a partir de una IP y número de hosts — IP de red, rango útil, broadcast, máscara, prefijo y wildcard.',
+
+    'experience.label': 'Experiencia',
+    'experience.period.current': 'Actual',
+    'experience.period.2025': '2025',
+    'experience.period.2020-2026': '2020 — 2026',
+
+    'experience.daimler.title': 'Residente DevOps — Daimler Truck México',
+    'experience.daimler.detail':
+      'Equipo OPT / HR. Reingeniería de módulos HR de ASP Classic a React y .NET.',
+
+    'experience.hackathon.title': '1er lugar — Genius Arena Hackathon',
+    'experience.hackathon.detail':
+      'Parte del equipo en una app de microempresarios, reto de Coppel.',
+
+    'experience.education.title':
+      'Ingeniería en Sistemas Computacionales — ITT Toluca',
+    'experience.education.detail':
+      'Egreso previsto 2026. Formación en desarrollo full stack (React, .NET, C#) y fundamentos de redes (CCNAv7) y administración Linux.',
   },
 } as const;

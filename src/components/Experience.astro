@@ -1,0 +1,54 @@
+---
+import { getLanguageFromUrl, useTranslation } from '@i18n/utils';
+import { experience } from '@data/experience';
+
+const lang = getLanguageFromUrl(Astro.url);
+const t = useTranslation(lang);
+
+const categoryColor = {
+  work: 'bg-accent2',
+  hackathon: 'bg-accent',
+  personal: 'bg-ink/40',
+} as const;
+
+const categoryText = {
+  work: 'text-accent2',
+  hackathon: 'text-accent',
+  personal: 'text-ink/50',
+} as const;
+---
+
+<section
+  id="experience"
+  class="px-6 sm:px-8 max-w-4xl mx-auto py-16 sm:py-24 border-t border-line"
+>
+  <h2 class="font-serif text-2xl sm:text-3xl mb-10 sm:mb-14">
+    {t('experience.label')}
+  </h2>
+
+  <ol class="relative border-l border-line ml-1.5">
+    {
+      experience.map((entry) => (
+        <li class="mb-10 sm:mb-12 ml-6 last:mb-0">
+          <span
+            class={`absolute -left-1.25 mt-1.5 w-2.5 h-2.5 rounded-full ${categoryColor[entry.category]}`}
+          />
+
+          <span
+            class={`font-sans text-xs uppercase tracking-widest ${categoryText[entry.category]}`}
+          >
+            {t(`experience.period.${entry.period}`)}
+          </span>
+
+          <h3 class="font-serif text-lg sm:text-xl text-ink mt-1.5">
+            {t(`experience.${entry.key}.title`)}
+          </h3>
+
+          <p class="font-sans text-ink/70 leading-relaxed mt-1.5 max-w-xl">
+            {t(`experience.${entry.key}.detail`)}
+          </p>
+        </li>
+      ))
+    }
+  </ol>
+</section>
