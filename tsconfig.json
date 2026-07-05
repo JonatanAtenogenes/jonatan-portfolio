@@ -11,6 +11,7 @@
       "@styles/*": ["./src/styles/*"],
       "@assets/*": ["./src/assets/*"],
       "@i18n/*": ["./src/i18n/*"],
+      "@data/*": ["./src/data/*"],
     }
   }
 }
