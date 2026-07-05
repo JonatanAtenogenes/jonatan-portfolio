@@ -76,6 +76,16 @@ export const ui = {
     'experience.education.title': 'Computer Systems Engineering — ITT Toluca',
     'experience.education.detail':
       'Expected graduation 2026. Foundation in full stack development (React, .NET, C#), networking (CCNAv7), and Linux administration.',
+
+    'contact.label': 'Contact',
+    'contact.intro':
+      "I'm currently open to full-time roles and freelance work — feel free to reach out.",
+    'contact.emailLabel': 'Email',
+    'contact.copyEmail': 'Copy',
+    'contact.copied': 'Copied',
+
+    'contact.linkedin': 'LinkedIn',
+    'contact.github': 'GitHub',
   },
   es: {
     'hero.availability': 'Disponible para colaborar — CDMX / remoto',
@@ -148,5 +158,14 @@ export const ui = {
       'Ingeniería en Sistemas Computacionales — ITT Toluca',
     'experience.education.detail':
       'Egreso previsto 2026. Formación en desarrollo full stack (React, .NET, C#) y fundamentos de redes (CCNAv7) y administración Linux.',
+
+    'contact.label': 'Contacto',
+    'contact.intro':
+      'Actualmente estoy abierto a roles de tiempo completo y trabajo freelance — no dudes en escribirme.',
+    'contact.emailLabel': 'Correo',
+    'contact.copyEmail': 'Copy',
+    'contact.copied': 'Copiado',
+    'contact.linkedin': 'LinkedIn',
+    'contact.github': 'GitHub',
   },
 } as const;

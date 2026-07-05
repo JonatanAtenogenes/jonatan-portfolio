@@ -1,0 +1,116 @@
+---
+import { getLanguageFromUrl, useTranslation } from '@i18n/utils';
+import { contact } from '@data/contact';
+
+const lang = getLanguageFromUrl(Astro.url);
+const t = useTranslation(lang);
+---
+
+<section
+  id="contact"
+  class="px-6 sm:px-8 max-w-4xl mx-auto py-16 sm:py-24 border-t border-line"
+>
+  <h2 class="font-serif text-2xl sm:text-3xl mb-6">
+    {t('contact.label')}
+  </h2>
+
+  <p class="font-sans text-ink/75 leading-relaxed max-w-md mb-10">
+    {t('contact.intro')}
+  </p>
+
+  <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+    <button
+      id="copy-email"
+      type="button"
+      data-email={contact.email}
+      data-label-copy={t('contact.copyEmail')}
+      data-label-copied={t('contact.copied')}
+      class="font-sans px-6 py-3 bg-accent text-bg font-medium w-full sm:w-auto flex items-center justify-center sm:justify-between gap-3"
+    >
+      <span>{t('contact.emailLabel')}</span>
+      <span
+        id="copy-indicator"
+        class="flex items-center gap-1.5 text-xs text-bg/70"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="9" y="9" width="13" height="13" rx="1"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+          ></path>
+        </svg>
+        <span id="copy-text">{t('contact.copyEmail')}</span>
+      </span>
+    </button>
+
+    <a
+      href={contact.linkedin}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="font-sans px-6 py-3 border border-line text-line font-medium w-full sm:w-auto text-center hover:bg-line hover:text-panel-ink transition-colors"
+    >
+      {t('contact.linkedin')}</a
+    >
+
+    <a
+      href={contact.github}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="font-sans px-6 py-3 border border-line text-line font-medium w-full sm:w-auto text-center hover:bg-line hover:text-panel-ink transition-colors"
+      >{t('contact.github')}</a
+    >
+  </div>
+</section>
+
+<script>
+  const button = document.getElementById('copy-email');
+  const copyText = document.getElementById('copy-text');
+
+  async function copyEmail(email: string): Promise<boolean> {
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(email);
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    const textarea = document.createElement('textarea');
+    textarea.value = email;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      document.execCommand('copy');
+      return true;
+    } catch {
+      return false;
+    } finally {
+      document.body.removeChild(textarea);
+    }
+  }
+
+  button?.addEventListener('click', async () => {
+    const email = button.dataset.email ?? '';
+    const labelCopy = button.dataset.labelCopy ?? 'Copy';
+    const labelCopied = button.dataset.labelCopied ?? 'Copied';
+
+    const success = await copyEmail(email);
+    if (success && copyText) {
+      copyText.textContent = labelCopied;
+      setTimeout(() => {
+        copyText.textContent = labelCopy;
+      }, 2000);
+    }
+  });
+</script>
