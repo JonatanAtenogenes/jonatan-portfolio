@@ -1,0 +1,115 @@
+---
+import { getLanguageFromUrl, useTranslation } from '@i18n/utils';
+import { projects } from '@data/projects';
+
+const lang = getLanguageFromUrl(Astro.url);
+const t = useTranslation(lang);
+
+const categoryColor = {
+  work: 'text-accent2',
+  hackathon: 'text-accent',
+  personal: 'text-ink/50',
+} as const;
+
+const notFeatured = projects.filter((p) => !p.featured);
+---
+
+<section
+  id="projects"
+  class="px-6 sm:px-8 max-w-4xl mx-auto py-16 sm:py-24 border-t border-line"
+>
+  <h2 class="font-serif text-2xl sm:text-3xl mb-10 sm:mb-14">
+    {t('projects.label')}
+  </h2>
+
+  <div class="flex flex-col gap-4">
+    {
+      projects
+        .filter((p) => p.featured)
+        .map((p) => (
+          <article class="bg-panel text-panel-ink p-8 sm:p-10">
+            <span class="font-sans text-xs uppercase tracking-widest text-accent">
+              {t(`projects.category.${p.category}`)}
+            </span>
+            <h3 class="font-serif text-2xl sm:text-3xl mt-3">
+              {t(`projects.${p.key}.title`)}
+            </h3>
+            <p class="font-sans text-panel-ink/75 leading-relaxed mt-4 max-w-2xl">
+              {t(`projects.${p.key}.desc`)}
+            </p>
+            <div class="flex gap-3 mt-6">
+              {p.icons.map((icon) => (
+                <img
+                  src={`https://cdn.simpleicons.org/${icon}/f0f7ee`}
+                  alt=""
+                  class="w-5 h-5 opacity-60 hover:opacity-100 transition-opacity"
+                />
+              ))}
+            </div>
+          </article>
+        ))
+    }
+
+    <div class="grid sm:grid-cols-2 gap-4">
+      {
+        notFeatured.map((p, i) => (
+          <article
+            class:list={[
+              'border border-line p-6 sm:p-8',
+              i === notFeatured.length - 1 && 'sm:col-span-2',
+            ]}
+          >
+            <span
+              class={`font-sans text-xs uppercase tracking-widest ${categoryColor[p.category]}`}
+            >
+              {t(`projects.category.${p.category}`)}
+            </span>
+            <h3 class="font-serif text-xl sm:text-2xl mt-3 text-ink">
+              {t(`projects.${p.key}.title`)}
+            </h3>
+            <p class="font-sans text-ink/75 leading-relaxed mt-4">
+              {t(`projects.${p.key}.desc`)}
+            </p>
+
+            <div class="flex items-center justify-between mt-6">
+              <div class="flex gap-3">
+                {p.icons.map((icon) => (
+                  <img
+                    src={`https://cdn.simpleicons.org/${icon}`}
+                    alt=""
+                    class="w-5 h-5 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                  />
+                ))}
+              </div>
+
+              {(p.github || p.demo) && (
+                <div class="flex gap-4 font-sans text-xs uppercase tracking-wide">
+                  {p.demo && (
+                    <a
+                      href={p.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-accent2 hover:text-ink transition-colors"
+                    >
+                      Demo →
+                    </a>
+                  )}
+                  {p.github && (
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-ink/50 hover:text-ink transition-colors"
+                    >
+                      GitHub →
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
