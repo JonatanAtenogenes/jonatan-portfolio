@@ -1,6 +1,7 @@
 ---
 import { getLanguageFromUrl, useTranslation } from '@i18n/utils';
 import { projects } from '@data/projects';
+import ProjectLinks from '@components/ProjectLinks.astro';
 
 const lang = getLanguageFromUrl(Astro.url);
 const t = useTranslation(lang);
@@ -37,14 +38,23 @@ const notFeatured = projects.filter((p) => !p.featured);
             <p class="font-sans text-panel-ink/75 leading-relaxed mt-4 max-w-2xl">
               {t(`projects.${p.key}.desc`)}
             </p>
-            <div class="flex gap-3 mt-6">
-              {p.icons.map((icon) => (
-                <img
-                  src={`https://cdn.simpleicons.org/${icon}/f0f7ee`}
-                  alt=""
-                  class="w-5 h-5 opacity-60 hover:opacity-100 transition-opacity"
-                />
-              ))}
+            <div class="flex items-center justify-between mt-6">
+              <div class="flex gap-3">
+                {p.icons.map((icon) => (
+                  <img
+                    src={`https://cdn.simpleicons.org/${icon}/f0f7ee`}
+                    alt=""
+                    class="w-5 h-5 opacity-60 hover:opacity-100 transition-opacity"
+                  />
+                ))}
+              </div>
+
+              <ProjectLinks
+                demo={p.demo}
+                github={p.github}
+                journal={p.journal}
+                variant="featured"
+              />
             </div>
           </article>
         ))
@@ -81,41 +91,12 @@ const notFeatured = projects.filter((p) => !p.featured);
                   />
                 ))}
               </div>
-
-              {(p.github || p.demo || p.journal) && (
-                <div class="flex gap-4 font-sans text-xs uppercase tracking-wide">
-                  {p.demo && (
-                    <a
-                      href={p.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-accent2 hover:text-ink transition-colors"
-                    >
-                      Demo →
-                    </a>
-                  )}
-                  {p.github && (
-                    <a
-                      href={p.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-ink/50 hover:text-ink transition-colors"
-                    >
-                      GitHub →
-                    </a>
-                  )}
-                  {p.journal && (
-                    <a
-                      href={p.journal}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-accent2 hover:text-ink transition-colors"
-                    >
-                      Journal →
-                    </a>
-                  )}
-                </div>
-              )}
+              <ProjectLinks
+                demo={p.demo}
+                github={p.github}
+                journal={p.journal}
+                variant="default"
+              />
             </div>
           </article>
         ))

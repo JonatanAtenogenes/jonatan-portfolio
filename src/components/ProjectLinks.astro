@@ -1,0 +1,57 @@
+---
+interface Props {
+  demo?: string;
+  github?: string;
+  journal?: string;
+  variant?: 'default' | 'featured';
+}
+
+const { demo, github, journal, variant = 'default' } = Astro.props;
+
+const accentClass =
+  variant === 'featured'
+    ? 'text-accent hover:text-panel-ink'
+    : 'text-accent2 hover:text-ink';
+
+const ghostClass =
+  variant === 'featured'
+    ? 'text-panel-ink/50 hover:text-panel-ink'
+    : 'text-ink/50 hover:text-ink';
+---
+
+{
+  (demo || github || journal) && (
+    <div class="flex gap-4 font-sans text-xs uppercase tracking-wide">
+      {journal && (
+        <a
+          href={journal}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={`${accentClass} transition-colors`}
+        >
+          Journal →
+        </a>
+      )}
+      {demo && (
+        <a
+          href={demo}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={`${accentClass} transition-colors`}
+        >
+          Demo →
+        </a>
+      )}
+      {github && (
+        <a
+          href={github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={`${ghostClass} transition-colors`}
+        >
+          GitHub →
+        </a>
+      )}
+    </div>
+  )
+}
