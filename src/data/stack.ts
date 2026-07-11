@@ -6,6 +6,10 @@ export const stackCategories = [
       { name: 'React Native', icon: 'react' },
       { name: 'TypeScript', icon: 'typescript' },
       {
+        name: 'Kotlin',
+        icon: 'kotlin',
+      },
+      {
         name: 'Flutter',
         icon: 'flutter',
       },
@@ -15,6 +19,7 @@ export const stackCategories = [
     key: 'backend',
     items: [
       { name: '.NET / C#', icon: 'dotnet' },
+      { name: 'Python', icon: 'python' },
       { name: 'Java', icon: null },
       { name: 'REST APIs', icon: null },
     ],
@@ -29,6 +34,7 @@ export const stackCategories = [
   {
     key: 'bi',
     items: [
+      { name: 'Pandas', icon: 'pandas' },
       { name: 'Power BI', icon: null },
       { name: 'Excel / Power Query', icon: null },
       { name: 'Data Analysis', icon: null },

@@ -60,6 +60,11 @@ export const ui = {
     'projects.subnetting.desc':
       'A vanilla HTML, CSS and JavaScript tool that calculates full subnetting tables from an IP address and host count — network ID, usable range, broadcast, mask, prefix, and wildcard.',
 
+    'projects.technical-journal.title': 'Technical Journal',
+
+    'projects.technical-journal.desc':
+      'A documentation platform built with Next.js and MDX for publishing technical case studies. It features automatic table of contents generation, reading progress, responsive layouts, and multilingual support for documenting software engineering, infrastructure, and data projects.',
+
     'experience.label': 'Experience',
     'experience.period.current': 'Current',
     'experience.period.2025': '2025',
@@ -140,6 +145,11 @@ export const ui = {
     'projects.subnetting.title': 'Calculadora de subneteo IPv4',
     'projects.subnetting.desc':
       'Herramienta en HTML, CSS y JavaScript puro que calcula tablas completas de subneteo a partir de una IP y número de hosts — IP de red, rango útil, broadcast, máscara, prefijo y wildcard.',
+
+    'projects.technical-journal.title': 'Technical Journal',
+
+    'projects.technical-journal.desc':
+      'Plataforma de documentación desarrollada con Next.js y MDX para publicar casos de estudio técnicos. Incluye generación automática de tabla de contenidos, progreso de lectura, diseño responsivo y soporte multilenguaje para documentar proyectos de software, infraestructura y análisis de datos.',
 
     'experience.label': 'Experiencia',
     'experience.period.current': 'Actual',

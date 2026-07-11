@@ -82,7 +82,7 @@ const notFeatured = projects.filter((p) => !p.featured);
                 ))}
               </div>
 
-              {(p.github || p.demo) && (
+              {(p.github || p.demo || p.journal) && (
                 <div class="flex gap-4 font-sans text-xs uppercase tracking-wide">
                   {p.demo && (
                     <a
@@ -102,6 +102,16 @@ const notFeatured = projects.filter((p) => !p.featured);
                       class="text-ink/50 hover:text-ink transition-colors"
                     >
                       GitHub →
+                    </a>
+                  )}
+                  {p.journal && (
+                    <a
+                      href={p.journal}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-accent2 hover:text-ink transition-colors"
+                    >
+                      Journal →
                     </a>
                   )}
                 </div>
