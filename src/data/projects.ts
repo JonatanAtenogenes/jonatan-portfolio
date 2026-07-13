@@ -38,7 +38,7 @@ export const projects: Project[] = [
     featured: true,
     category: 'personal',
     icons: ['nextdotjs', 'react', 'typescript', 'tailwindcss', 'shadcnui'],
-    github: 'https://github.com/JonatanAtenogenes/Network-Subnetting',
+    github: 'https://github.com/JonatanAtenogenes/technical-journal',
     demo: 'https://network-subnetting.onrender.com/',
     journal:
       'https://technical-journal.onrender.com/projects/technical-journal',
