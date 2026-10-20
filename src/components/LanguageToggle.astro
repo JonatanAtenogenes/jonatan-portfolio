@@ -1,0 +1,41 @@
+---
+import { getLanguageFromUrl, useTranslation } from '@i18n/utils';
+
+const lang = getLanguageFromUrl(Astro.url);
+const t = useTranslation(lang);
+const { pathname } = Astro.url;
+
+const enPath = pathname.replace(/^\/es(\/|$)/, '/');
+const esPath = enPath === '/' ? '/es/' : `/es${enPath}`;
+
+const options = [
+  { code: 'en', label: 'EN', href: enPath },
+  { code: 'es', label: 'ES', href: esPath },
+] as const;
+---
+
+<nav
+  aria-label={t('lang.label')}
+  class="flex items-center gap-2 font-sans text-xs tracking-widest"
+>
+  {
+    options.map((opt, i) => (
+      <>
+        {i > 0 && <span class="text-ink/30">·</span>}
+        <a
+          href={opt.href}
+          hreflang={opt.code}
+          aria-current={lang === opt.code ? 'true' : undefined}
+          class:list={[
+            'transition-colors duration-300',
+            lang === opt.code
+              ? 'text-accent2 font-semibold pointer-events-none'
+              : 'text-ink/50 hover:text-accent2',
+          ]}
+        >
+          {opt.label}
+        </a>
+      </>
+    ))
+  }
+</nav>

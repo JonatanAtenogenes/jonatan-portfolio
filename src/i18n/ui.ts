@@ -7,6 +7,7 @@ export const defaultLang = 'en';
 
 export const ui = {
   en: {
+    'lang.label': 'Language',
     'hero.availability': 'Open to work — CDMX / remote / relocation',
     'hero.name': 'Jonatan Eslava',
     'hero.tagline.pre': 'From REST APIs to',
@@ -110,6 +111,7 @@ export const ui = {
     'contact.github': 'GitHub',
   },
   es: {
+    'lang.label': 'Idioma',
     'hero.availability':
       'Disponible para trabajar — CDMX / remoto / reubicación',
     'hero.name': 'Jonatan Eslava',
