@@ -4,7 +4,11 @@ export interface Project {
     | 'hackathon'
     | 'homeserver'
     | 'subnetting'
-    | 'technical-journal';
+    | 'technical-journal'
+    | 'ops-terminal'
+    | 'soundpulse'
+    | 'financial-help'
+    | 'attrition';
   featured: boolean;
   category: 'work' | 'hackathon' | 'personal';
   icons: string[];
@@ -39,9 +43,8 @@ export const projects: Project[] = [
     category: 'personal',
     icons: ['nextdotjs', 'react', 'typescript', 'tailwindcss', 'shadcnui'],
     github: 'https://github.com/JonatanAtenogenes/technical-journal',
-    demo: 'https://network-subnetting.onrender.com/',
-    journal:
-      'https://technical-journal.onrender.com/projects/technical-journal',
+    demo: 'https://technical-journal.onrender.com/',
+    journal: 'https://technical-journal.onrender.com/series/technical-journal',
   },
   {
     key: 'subnetting',
@@ -52,5 +55,36 @@ export const projects: Project[] = [
     demo: 'https://network-subnetting.onrender.com/',
     journal:
       'https://technical-journal.onrender.com/projects/network-subnetting',
+  },
+  {
+    key: 'ops-terminal',
+    featured: false,
+    category: 'personal',
+    icons: ['svelte', 'typescript', 'tailwindcss', 'supabase'],
+    github: 'https://github.com/JonatanAtenogenes/ops-terminal',
+    journal: 'https://technical-journal.onrender.com/projects/ops-terminal',
+  },
+  {
+    key: 'soundpulse',
+    featured: false,
+    category: 'personal',
+    icons: ['kotlin', 'jetpackcompose'],
+    github: 'https://github.com/JonatanAtenogenes/SoundPulse',
+    journal: 'https://technical-journal.onrender.com/series/soundpulse',
+  },
+  {
+    key: 'financial-help',
+    featured: false,
+    category: 'personal',
+    icons: ['kotlin', 'jetpackcompose', 'firebase'],
+    journal: 'https://technical-journal.onrender.com/series/financial-help',
+  },
+  {
+    key: 'attrition',
+    featured: false,
+    category: 'personal',
+    icons: ['python', 'pandas', 'jupyter'],
+    journal:
+      'https://technical-journal.onrender.com/projects/employee-attrition',
   },
 ];
